@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <title>Heart Disease Predictor</title>
+    <style>
+        body {
+    background-image: url('static/heart_rate.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Poppins", sans-serif;
+    font-size:62.5%;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color:black
+}
+label {
+    color: white;
+    font-size:1rem;
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 3rem;
+}
+.box {
+    display: flex;
+    gap: 0rem;
+}
+form {
+    background-color: rgba(45, 60, 79, 0.9);
+    padding: 2rem;
+    /* margin: 0 auto; */
+    max-width: 904px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(78 59 59 / 20%);
+    /* min-height: 75vh; */
+    height: 83vh;
+    overflow: scroll;
+}
+select, input {
+   
+    width: 95%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+.predict {
+    background-color: #007BFF;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 2rem;
+
+}
+.predict:hover {
+    background-color: #0056b3;
+}
+
+.right-box
+{
+    background: #000;
+    border: 3px solid #fff;
+    margin-left: 42px;
+    margin-right: 2rem;
+    visibility: hidden;
+}
+.right-box p{
+    font-size: 2rem;
+    color: #fff;
+    padding-inline: 3rem;
+    text-align: justify;
+
+}
+.right-box img{
+    width: 60%;
+}
+.right-box .text{
+    color: yellowgreen;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+.right-box .image
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+}
+.img1{
+    display: none;
+}
+
+.box{
+    display: flex;
+
+}
+    </style>
+   
+</head>
+<body>
+    <h1 style="color:white;">Heart Disease Predictor</h1>
+    <div class="box">
+        <form action="/predict" method="post">
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" id="Age" pattern="[0-9]{2,3}">
+    
+            <label for="Gender">Gender:</label>
+            <select name="Gender" id="Gender">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+    
+            <label for="CP_Level">Chest Pain Level:</label>
+            <select name="CP_Level" id="CP_Level">
+                <option value="0">None</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+            </select>
+    
+            <label for="Trest_BPS_Level">Resting Blood Pressure Level:</label>
+            <input type="number" name="Trest_BPS_Level" id="Trest_BPS_Level">
+    
+            <label for="Cholestrol_Level">Cholesterol Level:</label>
+            <input type="number" name="Cholestrol_Level" id="Cholestrol_Level">
+    
+            <label for="FBS_Level">Fasting Blood Sugar Level:</label>
+            <select name="FBS_Level" id="FBS_Level">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+           
+    
+            <label for="Resting_ECG_Levels">Resting ECG Levels:</label>
+            <input type="text" name="Resting_ECG_Levels" id="Resting_ECG_Levels">
+    
+            <label for="Thalach_Levels">Thalach Levels:</label>
+            <input type="text" name="Thalach_Levels" id="Thalach_Levels">
+    
+            <label for="Exang_Levels">Exercise Induced Angina:</label>
+            <input type="text" name="Exang_Levels" id="Exang_Levels">
+    
+            <label for="Old_Peak_History_Recorded">Old Peak History Recorded:</label>
+            <input type="text" name="Old_Peak_History_Recorded" id="Old_Peak_History_Recorded">
+    
+            <label for="Slope_Levels">Slope Levels:</label>
+            <input type="text" name="Slope_Levels" id="Slope_Levels">
+    
+            <label for="CA_Levels">CA Levels:</label>
+            <input type="text" name="CA_Levels" id="CA_Levels">
+    
+            <label for="Thal_Levels">Thal Levels:</label>
+            <input type="text" name="Thal_Levels" id="Thal_Levels">
+    
+            <button type="submit" class="predict">Predict</button>
+        </form>
+        <div class="right-box">
+            <div class="image">
+               
+                
+               
+                
+                {% if 'not'  in data %}
+                <img src="static/good-heart.jpg" class="img2" alt="">
+                {% else %}
+                <img src="static/bad-heart.jpg" class="img2" alt="">
+                {% endif %}
+            </div>
+            <div class="text">
+                {{data}}
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(".predict").click(function(e){
+        e.preventDefault(); // Prevent the form from submitting
+        $(".right-box").css("visibility", "visible");
+    });
+</script>
+</html>

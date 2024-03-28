@@ -1,0 +1,95 @@
+body {
+    background-image: url('./img/heart_rate.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Poppins", sans-serif;
+    font-size:62.5%;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color:black
+}
+label {
+    color: white;
+    font-size:1rem;
+}
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 3rem;
+}
+.box {
+    display: flex;
+    gap: 0rem;
+}
+form {
+    background-color: rgba(45, 60, 79, 0.9);
+    padding: 1rem;
+    /* margin: 0 auto; */
+    max-width: 904px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(78 59 59 / 20%);
+    /* min-height: 75vh; */
+    height: 83vh;
+    overflow: scroll;
+}
+select, input {
+   
+    width: 95%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+.predict {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 230px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 2rem;
+    font-weight: 500;
+    width: 99%;
+    margin-top: 2rem;
+}
+.predict:hover {
+    background-color: #0056b3;
+}
+
+.right-box
+{
+    background: #000;
+    border: 3px solid #fff;
+    margin-left: 42px;
+    margin-right: 2rem;
+}
+.right-box p{
+    font-size: 2rem;
+    color: #fff;
+    padding-inline: 3rem;
+    text-align: justify;
+
+}
+.right-box img{
+    width: 60%;
+}
+.right-box .image
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+}
+.img1{
+    display: none;
+}
+
+.box{
+    display: flex;
+
+}
