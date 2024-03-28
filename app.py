@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 import pandas as pd
 import pickle
@@ -87,4 +88,4 @@ def get_input_data():
 #     return render_template("display.html", data=result)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=int(os.environ.get('PORT', 5000)), host='0.0.0.0')
